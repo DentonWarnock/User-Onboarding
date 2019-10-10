@@ -1,11 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
+import UserForm from './components/UserForm.js';
 import './App.css';
+
 
 function App() {
   return (
-    <div className="App">
-      Test
+    <div className="App">      
+      <UserForm />
    </div>
   );
 }
