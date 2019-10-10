@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field } from "formik";
+import * as Yup from 'yup';
+import axios from 'axios';
 
 function UserForm(props) {
   const [users, setUsers] = useState([]);
@@ -47,9 +49,24 @@ const myMapPropsToValues = props => {
   return returnObj;
 };
 
+const yupSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(2, "Name must be at least two characters long")
+    .required('Please include your name'),
+  email: Yup.string()
+    .min(6, 'Email address must be at least 6 characters')
+    .email('Email address is not valid')
+    .required('Email is required'),
+  password: Yup.string()
+    .min(6, 'Password must be at least 6 characters')
+    .max(20, "Password is too long")
+    .required('Password is required'),
+  TOS: Yup.boolean('You must agree to the Terms of Service')
+})
 
 const formikObj = {
-  mapPropsToValues: myMapPropsToValues 
+  mapPropsToValues: myMapPropsToValues,
+  validationSchema: yupSchema
 }
 
 const EnhancedFormHOC = withFormik(formikObj);

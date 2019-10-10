@@ -5,8 +5,11 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">      
-      <UserForm />
+    <div className="App"> 
+      <div className="App-header">   
+        <h1>User Form</h1>  
+        <UserForm />
+      </div>
    </div>
   );
 }

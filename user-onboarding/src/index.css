@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.user-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+}
+
+.user-form form input {
+  margin: 1rem;
+  line-height: 3rem;
+  border-radius: 0.5rem;
+}
+
+.user-form form button {
+  margin: 1rem auto;
+  line-height: 3rem;
+  width: 50%;
+  background: skyblue;
+  border: none;
+  border-radius: 2rem;
+  color: white;
+  font-size: calc(10px + 2vmin);   
+}
