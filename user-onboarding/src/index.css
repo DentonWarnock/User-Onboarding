@@ -34,3 +34,13 @@ code {
   color: white;
   font-size: calc(10px + 2vmin);   
 }
+
+.checkbox-container input {
+  height: 1.5rem;
+  width: 1.5rem;
+  }
+
+.error {
+  color: dodgerblue;
+  margin: 0;
+}
