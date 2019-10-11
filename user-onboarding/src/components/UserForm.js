@@ -54,6 +54,17 @@ const myMapPropsToValues = props => {
   return returnObj;
 };
 
+const myHandleSubmit = (values, { setStatus }) => {
+  console.log("submit pressed!")
+  axios
+    .post("https://reqres.in/api/users", values)
+    .then(response => {
+      console.log(response);
+      setStatus(response.data)
+    })
+    .catch(error => console.log(error));
+};
+
 const yupSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, "Name must be at least two characters long")
@@ -68,11 +79,12 @@ const yupSchema = Yup.object().shape({
     .required('Password is required'),
   tos: Yup.bool()
   .oneOf([true], 'You must agree to the Terms of Service')
-  // .required('You must agree to the Terms of Service')  
+  .required('You must agree to the Terms of Service')  
 })
 
 const formikObj = {
   mapPropsToValues: myMapPropsToValues,
+  handleSubmit: myHandleSubmit,
   validationSchema: yupSchema
 }
 
