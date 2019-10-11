@@ -9,6 +9,8 @@ function UserForm(props) {
   useEffect(() => {
     if (props.status) {
       setUsers([...users, props.status])
+      console.log("Status: ", props.status)
+      console.log("Users: ", users)
     }
   }, [props.status]);
 
@@ -39,6 +41,10 @@ function UserForm(props) {
           </label>
           <button type="submit">Submit</button>
         </Form>
+        <div className="users-list">
+          <h3>Users List</h3>
+          {users.map(user => <div key={user.id}>{user.name} - {user.email}</div>)}
+        </div>
       </div>   
   )
 };
@@ -54,13 +60,14 @@ const myMapPropsToValues = props => {
   return returnObj;
 };
 
-const myHandleSubmit = (values, { setStatus }) => {
+const myHandleSubmit = (values, { setStatus, resetForm }) => {
   console.log("submit pressed!")
   axios
     .post("https://reqres.in/api/users", values)
     .then(response => {
       console.log(response);
-      setStatus(response.data)
+      setStatus(response.data);
+      resetForm();
     })
     .catch(error => console.log(error));
 };
