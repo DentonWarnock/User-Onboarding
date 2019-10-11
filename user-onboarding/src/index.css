@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.user-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+}
+
+.user-form form input {
+  margin: 1rem;
+  line-height: 3rem;
+  border-radius: 0.5rem;
+  font-size: 1.8rem;
+}
+
+.user-form form button {
+  margin: 1rem auto;
+  line-height: 3rem;
+  width: 50%;
+  background: skyblue;
+  border: none;
+  border-radius: 2rem;
+  color: white;
+  font-size: calc(10px + 2vmin);   
+}
+
+.checkbox-container input {
+  height: 1.5rem;
+  width: 1.5rem;
+  }
+
+.error {
+  color: dodgerblue;
+  margin: 0;
+}
